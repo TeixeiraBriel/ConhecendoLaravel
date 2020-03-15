@@ -14,7 +14,7 @@
 
 *Configurando o banco de dados.
 
-1 - Crie seu banco de dados.(Caso não aja banco para consultar, criar e organizar suas tabelas)
+1 - Crie seu banco de dados.(Caso não haja banco para consultar, criar e organizar suas tabelas)
 
 2 - Procure o arquivo .env na raiz do projeto e preencha os campos de acordo com as suas configurações:
 
