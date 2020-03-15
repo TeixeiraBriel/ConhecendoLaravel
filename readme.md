@@ -1,72 +1,54 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<h1> Configurações </h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+*Considerações/Configurações inciais
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Utilizado no projeto php 7, Laravel, composer (para criação do projeto laravel), MySql.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Na raiz renomeio o arquivo .env.example para .env
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- No prompt de comando acesse a pasta do projeto e digite o codigo, "composer install", ele importará a pasta "vendor" que não é enviada ao git por ser muito grande.
 
-## Learning Laravel
+- Digite o comando "php artisan key:generate".
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*Configurando o banco de dados.
 
-## Laravel Sponsors
+1 - Crie seu banco de dados.(Caso não aja banco para consultar, criar e organizar suas tabelas)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2 - Procure o arquivo .env na raiz do projeto e preencha os campos de acordo com as suas configurações:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+- DB_CONNECTION=mysql (caso esteja usando mysql)
 
-## Contributing
+- DB_HOST=localhost (Host do seu banco)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- DB_PORT=3306 (Porta do banco)
 
-## Security Vulnerabilities
+- DB_DATABASE=Wherim (Nome do banco)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- DB_USERNAME=root (Usuario do banco)
 
-## License
+- DB_PASSWORD=pass (senha para acessar o banco)
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    - obs.: Dados preechidos acima são relativos ao meu ambiente de trabalho.
+    
+
+3 - Procure o arquivo /config/database.php. Dentro do return, procure 'connections' e vá na array 'mysql' (ou SGBD utilizado), e preencha os campos de acordo com suas configurações anteriores:
+
+- 'host' => env('DB_HOST', 'localhost'), (Host do seu banco)
+
+- 'port' => env('DB_PORT', '3306'), (Porta do banco)
+
+- 'database' => env('DB_DATABASE', 'Wherim'), (Nome do banco)
+
+- 'username' => env('DB_USERNAME', 'root'), (Usuario do banco)
+
+- 'password' => env('DB_PASSWORD', 'pass'), (senha para acessar o banco)
+
+
+4 - Abra o prompt de comando, vá até o diretorio do projeto, e por fim digite o codigo "php artisan migrate". Este codigo irá adicionar as tabelas necessarias para o uso do site.
+
+
+5 - Por fim utilize o comando "php artisan serve" para hospedar o site no seu localhost e acessa-lo no navegador com o o url dado pelo Laravel.
+
+
